@@ -35,6 +35,7 @@ public class BookController {
             }
             System.out.println("File reading complete.");
         } catch (Exception e) {
+            System.out.println("BOOK CREATION ERROR");
         }
     }
     

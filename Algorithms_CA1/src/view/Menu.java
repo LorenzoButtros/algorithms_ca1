@@ -27,10 +27,23 @@ public class Menu {
         mainMenu.add("Exit program");
         
         // Prints the menu built by the printMenu method, that receives this menu arraylist as a parameter
-        System.out.println(MenuController.printMenu(mainMenu)); 
+        System.out.println(printMenu(mainMenu)); 
     }
     
-    
+    // Method that receives an arraylist of options and builds a printable string
+    public static String printMenu(ArrayList menuItems){
+        
+        // The header is the first item of the list
+        String menu = "\n**** " + menuItems.get(0) + " **** \n"; 
+        
+        // i starts as 1 so the first option will be number 1. 0 was the header
+        for (int i = 1; i < menuItems.size(); i++){ 
+            
+            menu = menu.concat("\n" + i +") " + menuItems.get(i)); // The option with its number
+        }
+        
+        return menu;
+    }
     
     
     
