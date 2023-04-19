@@ -12,7 +12,7 @@ import model.Student;
  */
 public class BorrowingController {
     
-    private static HashMap<String,Borrowing> borrowings; // Using book id as keys
+    private static HashMap<String,Borrowing> borrowings = new HashMap<>(); // Using book id as keys
     
     public static boolean isBorrowed(String bookId){
         return borrowings.containsKey(bookId);
@@ -24,8 +24,8 @@ public class BorrowingController {
         
         if(isBorrowed(bookId)){
             System.out.println("This book is borrowed. Add student to the waiting list (Y/N)?");
-            if(InputController.getYorN){
-                WaitingListController.addStudentToWaitingList();
+            if(InputController.getYorN()){ // If the user inputs Y
+                WaitingListController.addStudentToWaitingList(bookId);
             }
         }else{
             System.out.println("This book is available. Please enter the borrowing date (dd/mm/yyyy):");
@@ -33,7 +33,7 @@ public class BorrowingController {
             System.out.println("Please enter the due date (dd/mm/yyyy):");
             dueDate = InputController.getString();
             System.out.println("Please enter the student's Id (4 digits):");
-            studentId = StudentController.checkStudentId(InputController.getInt());
+            studentId = StudentController.checkStudentId(); // Asks for a valid student id
             Borrowing newBorrowing = new Borrowing(bookId,date,dueDate,studentId);
             borrowings.put(newBorrowing.getBookId(), newBorrowing);
         }

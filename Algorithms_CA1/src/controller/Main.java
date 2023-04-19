@@ -3,6 +3,7 @@ package controller;
 import java.util.HashMap;
 import model.Book;
 import model.Student;
+import view.Menu;
 
 /**
  *
@@ -11,13 +12,19 @@ import model.Student;
  */
 public class Main {
 
-    
-    
+    private static boolean run = true;
     
     public static void main(String[] args) {
         
         BookController.createBookList();
-        
+        StudentController.createStudentList();
+        while(run){
+            Menu.showMainMenu();
+        }
+    }
+    
+    public static void endProgram(){
+        run = false;
     }
     
 }

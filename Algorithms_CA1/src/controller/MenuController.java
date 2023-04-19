@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import model.Book;
 
 /**
  *
@@ -8,6 +9,79 @@ import java.util.ArrayList;
  * @author Paulo Puhl - 2022225
  */
 public class MenuController {
+
+    public static void answerMainMenu() {
+        int option = InputController.getOption(1, 13);
+        switch (option) {
+            case 1: // Find a book by Id
+                Book bookById = BookController.matchBooksById();
+                System.out.println("\nTitle: " + bookById.getTitle() // Display the book's data
+                        + "\nAuthor: " + bookById.getAuthorName() 
+                        + "\nGenres: " + bookById.getGenres() 
+                        + "\nId: " + bookById.getId() + "\nAvailable: " 
+                        + (BorrowingController.isBorrowed(bookById.getId()) ? "No" : "Yes"));
+                break;
+
+            case 2: // Find a book by Title
+                Book bookByTitle = BookController.matchBooksByTitle();
+                System.out.println("\nTitle: " + bookByTitle.getTitle() // Display the book's data
+                        + "\nAuthor: " + bookByTitle.getAuthorName() 
+                        + "\nGenres: " + bookByTitle.getGenres() 
+                        + "\nId: " + bookByTitle.getId() + "\nAvailable: " 
+                        + (BorrowingController.isBorrowed(bookByTitle.getId()) ? "No" : "Yes"));
+                break;
+
+            case 3: // Find a book by Author
+                Book bookByAuthor = BookController.matchBooksByAuthor();
+                System.out.println("\nTitle: " + bookByAuthor.getTitle() // Display the book's data
+                        + "\nAuthor: " + bookByAuthor.getAuthorName() 
+                        + "\nGenres: " + bookByAuthor.getGenres() 
+                        + "\nId: " + bookByAuthor.getId() + "\nAvailable: " 
+                        + (BorrowingController.isBorrowed(bookByAuthor.getId()) ? "No" : "Yes"));
+                break;
+
+            case 4: // List all books
+                
+                break;
+            case 5: // Find a student by Id
+                
+                break;
+            case 6: // List all students
+                
+                break;
+            case 7: // Lend a bookById
+                Book bookLendById = BookController.matchBooksById();
+                BorrowingController.checkAndBorrowBook(bookLendById.getId());
+                break;
+            case 8: // Return a bookById
+                
+                break;
+            case 9: // View a waiting list
+                
+                break;
+            case 10: // Add student to a waiting list
+                
+                break;
+            case 11: // View a bookById's borrow history
+                // boorow list in object
+                break;
+            case 12: // View a student's borrow history 
+                
+                break;
+            case 13: // Exit Program
+                System.out.println("\nHave a nice day!");
+                Main.endProgram();
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+    
+    /*
+    public static int answerBookList(int size) {
+        return InputController.getOption(1, size);
+    }
+    */
     
     /*
     // Method that builds and prints the "list staff by category" menu
@@ -88,6 +162,8 @@ public class MenuController {
         System.out.println(printMenu(coachMenu));
     }
     */
+
+   
     
     
 }

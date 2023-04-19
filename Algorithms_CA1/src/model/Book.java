@@ -8,14 +8,47 @@ import java.util.ArrayList;
  * @author Paulo Puhl - 2022225
  */
 public class Book {
-    String id, title, authorFName, authorLName;
-    ArrayList<String> genres;
+    private String id, title, authorName, genres;
+    //ArrayList<String> genres;
 
-    public Book(String id, String authorFName, String authorLName, String title, ArrayList<String> genres) {
+    public Book(String id, String authorFName, String authorLName, String title, String genres) {
         this.id = id;
-        this.authorFName = authorFName;
-        this.authorLName = authorLName;
+        this.authorName = authorLName + ", " + authorFName;
+        //this.authorFName = authorFName;
+        //this.authorLName = authorLName;
         this.title = title;
         this.genres = genres;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+    
+    /*
+    public String getAuthorFName() {
+        return authorFName;
+    }
+
+    public String getAuthorLName() {
+        return authorLName;
+    }
+    */
+
+    public String getGenres() {
+        return genres;
+    }
+    
+    //public ArrayList<String> getGenres() {
+    //    return genres;
+    //}
+
+
 }
