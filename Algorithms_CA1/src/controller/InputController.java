@@ -9,6 +9,13 @@ import java.util.Scanner;
  */
 public class InputController {
 
+    public static void getEnterKey(){
+        
+        Scanner scanner = new Scanner(System.in); // Initialize scanner
+        System.out.print("\nPress Enter to continue...");
+        scanner.nextLine(); // Just get Enter key
+    }
+    
     public static String getString(){
         
         Scanner scanner = new Scanner(System.in); // Initialize scanner
@@ -30,7 +37,7 @@ public class InputController {
                 case "n":
                     return false;
                 default:
-                    System.out.println("\nInvalid input, please input Y or N.");
+                    System.out.print("\nInvalid input, please input Y or N: ");
                     break;
             }
         }
@@ -47,7 +54,7 @@ public class InputController {
                 input = scanner.nextInt(); // Get an input, will throw an exception if it's not an int
                 return input;
             }catch (Exception e){
-                System.out.println("\nInvalid input, please enter numbers only.");
+                System.out.print("\nInvalid input, please enter numbers only: ");
                 scanner.nextLine(); // To prevent infinite loop
             }
         }
@@ -68,7 +75,7 @@ public class InputController {
                 }
                 return input;
             }catch (Exception e){
-                System.out.println("\nInvalid input, please enter a number from the menu.");
+                System.out.print("\nInvalid input, please enter a number from the menu: ");
                 scanner.nextLine(); // To prevent infinite loop
             }
         }

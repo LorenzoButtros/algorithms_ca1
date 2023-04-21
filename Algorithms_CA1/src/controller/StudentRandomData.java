@@ -39,11 +39,11 @@ public class StudentRandomData {
         Random r = new Random();
 
         // Pick a street name and street type based on the length of the arrays
-        String streetName = StudentRandomData.firstNames[r.nextInt(firstNames.length)];
-        String streetType = StudentRandomData.surnames[r.nextInt(surnames.length)];
+        String streetName = StudentRandomData.streetNames[r.nextInt(streetNames.length)];
+        String streetType = StudentRandomData.streetTypes[r.nextInt(streetTypes.length)];
         
-        // Also adds a number
-        return ( r.nextInt(180)+20 + streetName + " " + streetType);
+        // Build a realistic street name
+        return (Integer.toString(r.nextInt(180)+20)) + " " + streetName + " " + streetType;
     }
     
     // Method that cretes a random mobile number
@@ -51,7 +51,9 @@ public class StudentRandomData {
 
         Random r = new Random();
 
-        // Creates a random mobile number
-        return 4+(Integer.toString(90)+10)+" "+Integer.toString(9000)+1000;
+        // Build a realistic mobile number
+        return (Integer.toString(r.nextInt(2)+87)) + " " 
+                + (Integer.toString(r.nextInt(90)+410)) + " "
+                + (Integer.toString(r.nextInt(9000)+1000));
     }
 }

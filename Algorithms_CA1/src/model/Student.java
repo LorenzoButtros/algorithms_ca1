@@ -8,15 +8,21 @@ import controller.StudentRandomData;
  * @author Paulo Puhl - 2022225
  */
 public class Student {
-    int id;
-    String name, address, mobile;
-    static int currId = 100;
+    
+    private int id;
+    private String name, address, mobile;
+    private static int currId = 1000;
     
     public Student() {
         id = createId();
-        name = StudentRandomData.getRandomStreetName();
+        name = StudentRandomData.getRandomStudentName();
         mobile = StudentRandomData.getRandomMobile();
         address = StudentRandomData.getRandomStreetName();
+    }
+    
+    public void printStudent() {
+        System.out.println("\nId: " + id + "\nName: " + name + "\nMobile: " 
+                + mobile + "\nAddress: " + address);
     }
     
     private int createId(){

@@ -15,36 +15,25 @@ public class MenuController {
         switch (option) {
             case 1: // Find a book by Id
                 Book bookById = BookController.matchBooksById();
-                System.out.println("\nTitle: " + bookById.getTitle() // Display the book's data
-                        + "\nAuthor: " + bookById.getAuthorName() 
-                        + "\nGenres: " + bookById.getGenres() 
-                        + "\nId: " + bookById.getId() + "\nAvailable: " 
-                        + (BorrowingController.isBorrowed(bookById.getId()) ? "No" : "Yes"));
+                bookById.printBook(); // Print the book's data
                 break;
 
             case 2: // Find a book by Title
                 Book bookByTitle = BookController.matchBooksByTitle();
-                System.out.println("\nTitle: " + bookByTitle.getTitle() // Display the book's data
-                        + "\nAuthor: " + bookByTitle.getAuthorName() 
-                        + "\nGenres: " + bookByTitle.getGenres() 
-                        + "\nId: " + bookByTitle.getId() + "\nAvailable: " 
-                        + (BorrowingController.isBorrowed(bookByTitle.getId()) ? "No" : "Yes"));
+                bookByTitle.printBook(); // Print the book's data
                 break;
 
             case 3: // Find a book by Author
                 Book bookByAuthor = BookController.matchBooksByAuthor();
-                System.out.println("\nTitle: " + bookByAuthor.getTitle() // Display the book's data
-                        + "\nAuthor: " + bookByAuthor.getAuthorName() 
-                        + "\nGenres: " + bookByAuthor.getGenres() 
-                        + "\nId: " + bookByAuthor.getId() + "\nAvailable: " 
-                        + (BorrowingController.isBorrowed(bookByAuthor.getId()) ? "No" : "Yes"));
+                bookByAuthor.printBook(); // Print the book's data
                 break;
 
             case 4: // List all books
                 
                 break;
             case 5: // Find a student by Id
-                
+                System.out.print("\nPlease enter the student's Id (4 digits): ");
+                StudentController.getStudent(StudentController.checkStudentId()).printStudent();
                 break;
             case 6: // List all students
                 
@@ -54,13 +43,16 @@ public class MenuController {
                 BorrowingController.checkAndBorrowBook(bookLendById.getId());
                 break;
             case 8: // Return a bookById
-                
+                Book bookReturnById = BookController.matchBooksById();
+                BorrowingController.returnBook(bookReturnById.getId());
                 break;
             case 9: // View a waiting list
-                
+                Book bookViewWListById = BookController.matchBooksById();
+                WaitingListController.printAWaitingList(bookViewWListById.getId());
                 break;
             case 10: // Add student to a waiting list
-                
+                Book bookAddWListById = BookController.matchBooksById();
+                WaitingListController.addStudentToWaitingList(bookAddWListById.getId());
                 break;
             case 11: // View a bookById's borrow history
                 // boorow list in object

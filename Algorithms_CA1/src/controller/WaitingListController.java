@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.HashMap;
+import model.Book;
 import model.WaitingList;
 
 /**
@@ -12,13 +13,34 @@ public class WaitingListController {
 
     private static HashMap<String,WaitingList> waitingLists = new HashMap<>(); // Using book id as keys
     
-    static void addStudentToWaitingList(String bookId) {
-        System.out.print("Insert the student's Id: ");
+    public static void checkNextOnWaitingList(String bookId) {
+        if(waitingLists.containsKey(bookId)){ // If the waiting list already exists
+            waitingLists.get(bookId).printFirst(); // Prints the first sutudent's Id or tells if the queue is empty
+        }else{ // If the waitinf list does not exist
+            System.out.println("\nWaiting list is Empty.");
+        }
+    }
+    
+    public static void addStudentToWaitingList(String bookId) {
+        System.out.print("Please input the student's Id: ");
         int studentId = StudentController.checkStudentId();  // Asks for a valid student id
         if(!waitingLists.containsKey(bookId)){
             waitingLists.put(bookId, new WaitingList());
         }
         waitingLists.get(bookId).enqueue(studentId);
+    }
+
+    public static void printAWaitingList(String bookId) {
+        if(waitingLists.containsKey(bookId)){ // If the waiting list already exists
+            waitingLists.get(bookId).printAll();// Prints the first sutudent's Id or tells if the queue is empty
+        }else{ // If the waitinf list does not exist
+            System.out.println("\nWaiting list is Empty.");
+        }
+        InputController.getEnterKey();
+    }
+
+    public static HashMap<String, WaitingList> getWaitingLists() {
+        return waitingLists;
     }
     
 }

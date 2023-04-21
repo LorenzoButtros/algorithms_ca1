@@ -30,10 +30,13 @@ public class BookController {
                     String title = read[3]; // Will ignore text after the comma in some titles have
                     if(title.contains("\"")){ // Because some titles have 1 or 2 commas in them, causing them to split incorrectly
                         String title2 = read[4];
+                        title = title.substring(1, title.length()); // Remove the " in the beginning
                         if(title2.contains("\"")){
+                            title2 = title2.substring(0, title2.length()-1); // Remove the " in the end
                             title = title + "," + title2;
                         }else{
                             String title3 = read[5];
+                            title3 = title3.substring(0, title3.length()-1); // Remove the " in the end
                             title = title + "," + title2 + "," + title3;
                         }
                     }
@@ -55,7 +58,7 @@ public class BookController {
     public static Book matchBooksById(){
         ArrayList<Book> matchList = new ArrayList<>();
         do{
-            System.out.println("\nPlease input a piece of the book Id (case sensitive):");
+            System.out.print("\nPlease input a piece of the book Id (case sensitive): ");
             String id = InputController.getString(); // Get an Id or piece of Id as string from the user
             for (HashMap.Entry<String, Book> book : books.entrySet()) { // Runs through the books HashMap
                 if(book.getKey().contains(id)){ // If the book's id contains the input
@@ -73,7 +76,7 @@ public class BookController {
     public static Book matchBooksByTitle(){
         ArrayList<Book> matchList = new ArrayList<>();
         do{
-            System.out.println("\nPlease input a piece of the book title (case sensitive):");
+            System.out.print("\nPlease input a piece of the book title (case sensitive): ");
             String title = InputController.getString(); // Get a title or piece of title as string from the user
             for (HashMap.Entry<String, Book> book : books.entrySet()) { // Runs through the books HashMap
                 if(book.getValue().getTitle().contains(title)){ // If the book's title contains the input
@@ -91,7 +94,7 @@ public class BookController {
     public static Book matchBooksByAuthor(){
         ArrayList<Book> matchList = new ArrayList<>();
         do{
-            System.out.println("\nPlease input a piece of the book author's name (case sensitive):");
+            System.out.print("\nPlease input a piece of the book author's name (case sensitive): ");
             String author = InputController.getString(); // Get a name or piece of name as string from the user
             for (HashMap.Entry<String, Book> book : books.entrySet()) { // Runs through the books HashMap
                 if(book.getValue().getAuthorName().contains(author)){ // If the book's title contains the input

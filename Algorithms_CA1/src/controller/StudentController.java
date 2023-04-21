@@ -27,7 +27,7 @@ public class StudentController {
             if(students.containsKey(id)){
                 return id;
             }else{
-                System.out.println("Student not found, please input another id:");
+                System.out.print("\nStudent not found, please input another id: ");
             }
         }
         return id; // Will never reach here

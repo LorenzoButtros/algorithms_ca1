@@ -1,5 +1,7 @@
 package model;
 
+import controller.StudentController;
+
 /**
  *
  * @author Lorenzo Buttros - 2022357
@@ -33,4 +35,10 @@ public class Borrowing {
         return studentId;
     }
     
+    // Display the book's data
+    public void printBorrowing() {
+        System.out.print("\nStudent id: " + studentId + "\nStudent name: " 
+                + StudentController.getStudent(studentId).getName() + "\nBorrowing date: " 
+                + date + "\nDue date: " + dueDate);
+    }
 }

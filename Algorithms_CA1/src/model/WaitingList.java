@@ -64,25 +64,26 @@ public class WaitingList {
     {
         int i;
         if (first == last) { // Check if queue is empty
-            System.out.printf("\nWaiting list is Empty.");
+            System.out.println("\nWaiting list is Empty.");
         }else{
-        
+            //System.out.println("");
             // Run through the array from first to last
+            System.out.println("\n---[ Waiting list ]---");
             for (i = first; i < last; i++) {
                 int id = queue[i];
-                System.out.printf((i+1) + " - Id: "+ id + " | " + "Name: " + StudentController.getStudent(id).getName());
+                System.out.println((i+1) + " - Id: "+ id + " | " + "Name: " + StudentController.getStudent(id).getName());
             }
         }
     }
  
     // Print the id in the first positon
-    public void queueFirst()
+    public void printFirst()
     {
         if (first == last) { // Check if queue is empty
-            System.out.printf("\nWaiting list is Empty.");
+            System.out.print("\nWaiting list is Empty.");
         }else{
-            int id = queue[first];
-            System.out.printf("\nNext student in the waiting list:\nId: " + id + "\nName: " + StudentController.getStudent(id).getName());
+            // Prints the data of the student whose id is in the first position of the queue
+            StudentController.getStudent(queue[first]).printStudent(); 
         }
     }
     
