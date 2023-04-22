@@ -108,4 +108,14 @@ public class BookController {
         Menu.showBookList(matchList); // Prints the list
         return matchList.get(InputController.getOption(1, matchList.size())-1); // -1 because the first option is 1 but the first index is 0 
     }
+    
+    public static Book getBook(String id) {
+        return books.get(id);
+    }
+    
+    public static Book[] getBooksArray() {
+        
+        Book[] booksArray = books.values().toArray(new Book[0]);
+        return  booksArray;
+    }
 }

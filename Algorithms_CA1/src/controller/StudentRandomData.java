@@ -9,19 +9,19 @@ import java.util.Random;
 public class StudentRandomData {
 
     
-    // Creates an array with 30 common first names
+    // Array with first names
     private static String[] firstNames = {"Liam","Noah","Oliver","Elijah","James","William","Benjamin","Lucas","Henry","Theodore","Jack","Levi","Alexander","Jackson","Mateo","Olivia","Emma","Charlotte","Amelia","Ava","Sophia","Isabella","Mia","Evelyn","Harper","Luna","Camila","Gianna","Elizabeth","Eleanor"};
 
-    // Creates an array with 30 common surnames
+    // Array with surnames
     private static String[] surnames = {"Smith","Johnson","Willians","Brown","Jones","Garcia","Miller","Davis","Rodriguez","Martinez","Hernandez","Lopez","Gonzalez","Wilson","Anderson","Thomas","Taylor","Moore","Jackson","Martin","Lee","Perez","Thompson","White","Harris","Sanchez","Clark","Ramirez","Lewis","Robinson"};
     
-    // Creates an array with 30 common first names
+    // Array with street names
     private static String[] streetNames = {"Abbey", "Ailesbury", "Ameins", "Baggot", "Bayside", "Capel", "Clyde", "Crampton", "Dame", "Dorset", "Drumcondra", "Eccles", "Fleet", "Grafton", "Harcourt", "Herbert", "Howth", "Kildare", "Leeson", "Merrion", "Mountjoy", "Newbridge", "O'Connell", "Park", "Parliament", "Parnell", "Pearse", "Sandymount", "Stillorgan", "Talbot", "Westmoreland"};
 
-    // Creates an array with 30 common surnames
+    // Array with street types
     private static String[] streetTypes = {"Street","Avenue","Drive","Square","Road","Boulevard"};
     
-    // Method that builds and returns a random student name using the arrays
+    // Builds and returns a random student name using the arrays
     public static String getRandomStudentName() {
 
         Random r = new Random();
@@ -33,7 +33,7 @@ public class StudentRandomData {
         return ( firstName + " " + surName);
     }
     
-    // Method that builds and returns a random street name using the arrays
+    // Builds and returns a random street name using the arrays
     public static String getRandomStreetName() {
 
         Random r = new Random();
@@ -46,12 +46,11 @@ public class StudentRandomData {
         return (Integer.toString(r.nextInt(180)+20)) + " " + streetName + " " + streetType;
     }
     
-    // Method that cretes a random mobile number
+    // Creates a random mobile number
     public static String getRandomMobile() {
 
         Random r = new Random();
 
-        // Build a realistic mobile number
         return (Integer.toString(r.nextInt(2)+87)) + " " 
                 + (Integer.toString(r.nextInt(90)+410)) + " "
                 + (Integer.toString(r.nextInt(9000)+1000));

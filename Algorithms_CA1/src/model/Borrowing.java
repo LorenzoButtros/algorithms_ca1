@@ -37,7 +37,8 @@ public class Borrowing {
     
     // Display the book's data
     public void printBorrowing() {
-        System.out.print("\nStudent id: " + studentId + "\nStudent name: " 
+        System.out.print("\nBook id: " + bookId
+                + "\nStudent id: " + studentId + "\nStudent name: " 
                 + StudentController.getStudent(studentId).getName() + "\nBorrowing date: " 
                 + date + "\nDue date: " + dueDate);
     }

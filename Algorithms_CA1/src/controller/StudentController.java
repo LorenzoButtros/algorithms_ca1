@@ -36,5 +36,11 @@ public class StudentController {
     public static Student getStudent(int id) {
         return students.get(id);
     }
+
+    public static Student[] getStudentsArray() {
+        
+        Student[] studentsArray = students.values().toArray(new Student[0]);
+        return  studentsArray;
+    }
     
 }

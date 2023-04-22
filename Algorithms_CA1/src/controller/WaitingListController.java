@@ -22,12 +22,13 @@ public class WaitingListController {
     }
     
     public static void addStudentToWaitingList(String bookId) {
-        System.out.print("Please input the student's Id: ");
+        System.out.print("\nPlease input the student's Id: ");
         int studentId = StudentController.checkStudentId();  // Asks for a valid student id
         if(!waitingLists.containsKey(bookId)){
             waitingLists.put(bookId, new WaitingList());
         }
         waitingLists.get(bookId).enqueue(studentId);
+        InputController.getEnterKey();
     }
 
     public static void printAWaitingList(String bookId) {

@@ -40,6 +40,8 @@ public class BorrowingController {
             studentId = StudentController.checkStudentId(); // Asks for a valid student id
             Borrowing newBorrowing = new Borrowing(bookId,date,dueDate,studentId);
             borrowings.put(newBorrowing.getBookId(), newBorrowing);
+            StudentController.getStudent(studentId).addToBorrowHistory(newBorrowing);
+            BookController.getBook(bookId).addToBorrowHistory(newBorrowing);
             System.out.println("\nBorrowing sucessful.");
             InputController.getEnterKey();
         }
