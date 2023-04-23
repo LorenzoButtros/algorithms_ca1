@@ -11,7 +11,7 @@ public class Searching {
     
     public static Student searchStudent(Student[] array, int studentId) {
         
-        //an implementation of the searching algorithm
+        //an implementation of the binary searching algorithm
         array = Sorting.studentSortById(array);
         int left = 0; //left isthe first position of the array
         int right = array.length-1; //right is the last position of the array
