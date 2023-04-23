@@ -44,8 +44,16 @@ public class MenuController {
                 
             case 6: // Find a student by Id
                 System.out.print("\nPlease enter the student's Id (4 digits): ");
-                // Use search algorithm here to find student
-                //StudentController.getStudent(StudentController.checkStudentId()).printStudent();
+                Student[] studentsArray = StudentController.getStudentsArray();
+                // Use search algorithm to find student, as asked in the CA
+                // Student array and an entered student id as paramenters
+                Student foundStudent = Searching.searchStudent(studentsArray, StudentController.checkStudentId());
+                try {
+                    foundStudent.printStudent();
+                } catch (Exception e) {
+                    System.out.println("\nStudent not found.");
+                }
+                InputController.getEnterKey();
                 break;
             
             case 7: // List all students by Id
@@ -73,11 +81,6 @@ public class MenuController {
                 WaitingListController.printAWaitingList(bookViewWListById.getId());
                 Menu.showWListMenu(bookViewWListById.getId());
                 break;
-            
-            //case 12: // Add student to a waiting list
-            //    Book bookAddWListById = BookController.matchBooksById();
-            //    WaitingListController.addStudentToWaitingList(bookAddWListById.getId());
-            //    break;
             
             case 12: // View a book's borrow history
                 Book bookHistoryById = BookController.matchBooksById();
