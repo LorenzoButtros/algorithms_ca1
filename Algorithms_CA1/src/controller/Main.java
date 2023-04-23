@@ -18,9 +18,14 @@ public class Main {
     
     public static void main(String[] args) {
         
-        BookController.createBookList();
-        StudentController.createStudentList();
-        testCase();
+        //BookController.createBooksFromCSV();
+        BookController.loadBookData();
+        StudentController.loadStudentData();
+        BorrowingController.loadBorrowingData();
+        WaitingListController.loadWListData();
+        //BookController.saveBooks();
+        //StudentController.saveStudents();
+        //testCase();
         while(run){
             Menu.showMainMenu();
         }
@@ -36,7 +41,7 @@ public class Main {
         String bookId = "2cc44192-02a1-472e-b9b9-865dda6345c6";
         Borrowing newBorrowing = new Borrowing(bookId,"20/04/2023","27/04/2023",1001);
         BorrowingController.getBorrowings().put(newBorrowing.getBookId(), newBorrowing);
-        WaitingListController.getWaitingLists().put(bookId, new WaitingList());
+        WaitingListController.getWaitingLists().put(bookId, new WaitingList(bookId));
         WaitingListController.getWaitingLists().get(bookId).enqueue(1002);
         WaitingListController.getWaitingLists().get(bookId).enqueue(1003);
         WaitingListController.getWaitingLists().get(bookId).enqueue(1004);

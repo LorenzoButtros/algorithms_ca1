@@ -13,17 +13,19 @@ public class Sorting {
     // An implementation of the insertion sort algorithm for book titles
     public static Book[] sortBooksByTitle(Book[] array) {
         
-        int n = array.length;
-        Book k; // Key element
-        int pos;
-        for (int i = 1; i < n; i++) {
-            k = array[i];
-            pos = i;
-            while(pos>0 && array[pos-1].getTitle().compareTo(k.getTitle())>0) {
-                array[pos] = array[pos-1];
-                pos = pos-1;
+        Book book;
+        int pointer; 
+        for (int i = 1; i < array.length; i++) {
+            book = array[i]; // Saves content of i into book
+            pointer = i; // Points at i
+            // compareTo returns a >0 int if the first string is lexicographically greater then the second,
+            // <0 if lesser and 0 if equal 
+            // Compare Title to the left with Title in book
+            while(pointer>0 && array[pointer-1].getTitle().compareTo(book.getTitle())>0) {
+                array[pointer] = array[pointer-1]; // Shifts contents
+                pointer--; // Decrement pointer
             }
-            array[pos] = k;
+            array[pointer] = book; // Insert content of book
         }
         return array;
     }
@@ -55,7 +57,7 @@ public class Sorting {
         for (int i = 1; i < n; i++) {
             k = array[i];
             pos = i;
-            //while(pos>0 && array[pos-1]>k){
+            //while(pointer>0 && array[pointer-1]>book){
             while(pos>0 && array[pos-1].getName().compareTo(k.getName())>0) {
                 array[pos] = array[pos-1];
                 pos = pos-1;
@@ -74,7 +76,7 @@ public class Sorting {
         for (int i = 1; i < n; i++) {
             k = array[i];
             pos = i;
-            //while(pos>0 && array[pos-1]>k){
+            //while(pointer>0 && array[pointer-1]>book){
             while(pos>0 && array[pos-1].getId()>k.getId()) {
                 array[pos] = array[pos-1];
                 pos = pos-1;

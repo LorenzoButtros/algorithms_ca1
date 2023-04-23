@@ -12,8 +12,10 @@ import view.Menu;
  */
 public class MenuController {
 
-    public static void answerMainMenu() {
-        int option = InputController.getOption(1, 15);
+    // React to user input
+    public static void answerMainMenu(int menuSize) {
+        // Get input. Will only accept an int in range
+        int option = InputController.getOption(1, menuSize);
         switch (option) {
             case 1: // Find a book by Id
                 Book bookById = BookController.matchBooksById();
@@ -56,7 +58,7 @@ public class MenuController {
                 Menu.printStudentArrayByName(sortedStudentsByName);
                 break;
                 
-            case 9: // Lend a bookById
+            case 9: // Lend a book
                 Book bookLendById = BookController.matchBooksById();
                 BorrowingController.checkAndBorrowBook(bookLendById.getId());
                 break;
@@ -66,28 +68,31 @@ public class MenuController {
                 BorrowingController.returnBook(bookReturnById.getId());
                 break;
             
-            case 11: // View a waiting list
+            case 11: // Manage a waiting list
                 Book bookViewWListById = BookController.matchBooksById();
                 WaitingListController.printAWaitingList(bookViewWListById.getId());
+                Menu.showWListMenu(bookViewWListById.getId());
                 break;
             
-            case 12: // Add student to a waiting list
-                Book bookAddWListById = BookController.matchBooksById();
-                WaitingListController.addStudentToWaitingList(bookAddWListById.getId());
-                break;
+            //case 12: // Add student to a waiting list
+            //    Book bookAddWListById = BookController.matchBooksById();
+            //    WaitingListController.addStudentToWaitingList(bookAddWListById.getId());
+            //    break;
             
-            case 13: // View a book's borrow history
+            case 12: // View a book's borrow history
                 Book bookHistoryById = BookController.matchBooksById();
                 bookHistoryById.printBorrowHistory();// Print the book's borrow history
+                InputController.getEnterKey();
                 break;
             
-            case 14: // View a student's borrow history 
+            case 13: // View a student's borrow history 
                 System.out.print("\nPlease enter the student's Id (4 digits): ");
                 Student student = StudentController.getStudent(StudentController.checkStudentId());
                 student.printBorrowHistory();// Print the student's borrow history
+                InputController.getEnterKey();
                 break;
             
-            case 15: // Exit Program
+            case 14: // Exit Program
                 System.out.println("\nHave a nice day!");
                 Main.endProgram();
                 break;
@@ -96,5 +101,6 @@ public class MenuController {
                 throw new AssertionError();
         }
     }
+    
     
 }

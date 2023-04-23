@@ -16,15 +16,26 @@ public class Book {
     private String id, title, authorName, genres;
     private ArrayList<Borrowing> borrowHistory;
 
-    public Book(String id, String authorFName, String authorLName, String title, String genres) {
+    // Construct for the first creation
+    public Book(String id, String authorName, String title, String genres) {
         
         this.id = id;
-        this.authorName = authorLName + ", " + authorFName;
+        this.authorName = authorName;
         this.title = title;
         this.genres = genres;
         borrowHistory = new ArrayList<>();
     }
 
+    // Construct for the load function
+    public Book(String id, String authorName, String title, String genres, ArrayList<Borrowing> borrowHistory) {
+        
+        this.id = id;
+        this.authorName = authorName;
+        this.title = title;
+        this.genres = genres;
+        this.borrowHistory = borrowHistory;
+    }
+    
     public String getTitle() {
         
         return title;
@@ -57,16 +68,20 @@ public class Book {
             WaitingListController.printAWaitingList(id);
         }else{
             System.out.println("\nAvailable: Yes");
-            InputController.getEnterKey();
         }
+        InputController.getEnterKey();
     }
 
     public void printBorrowHistory() {
         
-        System.out.println("\n---[Book's Borrow History]---");
-        for (int i = 0; i < borrowHistory.size(); i++) {
-            borrowHistory.get(i).printBorrowing();
-            System.out.println("");
+        if(borrowHistory.isEmpty()) {
+            System.out.println("\nBook's borrow history is empty.");
+        }else{
+            System.out.println("\n---[Book's Borrow History]---");
+            for (int i = 0; i < borrowHistory.size(); i++) {
+                borrowHistory.get(i).printBorrowing();
+                System.out.println("");
+            }
         }
     }
     

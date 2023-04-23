@@ -15,6 +15,7 @@ public class Student {
     private static int currId = 1000; // Static id counter used in student creation
     private ArrayList<Borrowing> borrowHistory;
     
+    // Construct for the first creation
     public Student() {
         id = createId();
         name = StudentRandomData.getRandomStudentName();
@@ -23,12 +24,21 @@ public class Student {
         borrowHistory = new ArrayList<>();
     }
     
+    // Construct for the load function
+    public Student(int id, String name, String mobile, String address, ArrayList<Borrowing> borrowHistory) {
+        this.id = id;
+        this.name = name;
+        this.mobile = mobile;
+        this.address = address;
+        this.borrowHistory = borrowHistory;
+    }
+    
     public void printStudent() {
         System.out.println("\nId: " + id + "\nName: " + name + "\nMobile: " 
                 + mobile + "\nAddress: " + address);
     }
     
-    private int createId(){
+    private int createId() {
         currId++; // Incremets counter before assigning to a new student
         return currId;
     } 
@@ -51,10 +61,14 @@ public class Student {
 
     public void printBorrowHistory() {
         
-        System.out.println("\n---[Student's Borrow History]---");
-        for (int i = 0; i < borrowHistory.size(); i++) {
-            borrowHistory.get(i).printBorrowing();
-            System.out.println("");
+        if(borrowHistory.isEmpty()) {
+            System.out.println("\nStudent's borrow history is empty.");
+        }else{
+            System.out.println("\n---[Student's Borrow History]---");
+            for (int i = 0; i < borrowHistory.size(); i++) {
+                borrowHistory.get(i).printBorrowing();
+                System.out.println("");
+            }
         }
     }
     

@@ -3,6 +3,7 @@ package view;
 import controller.InputController;
 import controller.MenuController;
 import controller.Sorting;
+import controller.WaitingListController;
 import java.util.ArrayList;
 import model.Book;
 import model.Student;
@@ -29,14 +30,25 @@ public class Menu {
         mainMenu.add("List all students by Name");
         mainMenu.add("Lend a book");
         mainMenu.add("Return a book");
-        mainMenu.add("View a waiting list");
-        mainMenu.add("Add student to a waiting list");
+        mainMenu.add("Manage a waiting list");
         mainMenu.add("View a book's borrow history");
         mainMenu.add("View a student's borrow history");
         mainMenu.add("Exit program");
-        // Prints the menu built by the printMenu method, that receives this menu arraylist as a parameter
+        // Print the menu built by the printMenu method, that receives this menu arraylist as a parameter
         printMenu(mainMenu);
-        MenuController.answerMainMenu();
+        // Get user input
+        MenuController.answerMainMenu(mainMenu.size()-1);
+    }
+    
+    public static void showWListMenu(String bookId){
+        
+        ArrayList wListMenu = new ArrayList<String>(); // List that receives the options below
+        wListMenu.add("Waiting List Menu"); // Header
+        wListMenu.add("Add a student to the queue");
+        wListMenu.add("Remove first student in the queue");
+        wListMenu.add("Done");
+        printMenu(wListMenu);
+        WaitingListController.answerWListMenu(wListMenu.size()-1, bookId);
     }
     
     public static void showBookList(ArrayList<Book> matchList) {
