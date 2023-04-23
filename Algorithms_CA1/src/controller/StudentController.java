@@ -72,12 +72,12 @@ public class StudentController {
                     }
                     students.put(id, new Student(id, name, mobile, address, bList));
                 }catch(Exception e){
-                    System.out.println("students.txt - READING ERROR");
+                    System.out.println("students.txt - LOADING ERROR");
                 }
             }
             System.out.println("students.txt - File reading complete.");
         }catch (Exception e) {
-            System.out.println("students.txt - STUDENT CREATION ERROR");
+            System.out.println("students.txt - ERROR ACCESSING FILE DURING LOAD");
         }
     }
     
@@ -105,14 +105,14 @@ public class StudentController {
                     }
                     printWriter.write("\n"); // End line to write next book
                 }catch(Exception e){
-                    System.out.println("students.txt - READING ERROR");
+                    System.out.println("students.txt - SAVING ERROR");
                 }
             }
             printWriter.close();
             fileWriter.close();
-            System.out.println("students.txt - File reading complete.");
+            System.out.println("students.txt - Updated.");
         }catch (Exception e) {
-            System.out.println("students.txt - BOOK CREATION ERROR");
+            System.out.println("students.txt - ERROR ACCESSING FILE DURING SAVE");
         }
     }
     

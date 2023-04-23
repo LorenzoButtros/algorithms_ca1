@@ -64,12 +64,12 @@ public class BookController {
                     String genres = read[read.length-1]; // The last index
                     books.put(id, new Book(id, authorName, title, genres)); // Add the new book to the HashMap
                 }catch(Exception e){
-                    System.out.println("MOCK_DATA.csv - READING ERROR");
+                    System.out.println("MOCK_DATA.csv - LOADING ERROR");
                 }
             }
             System.out.println("MOCK_DATA.csv - File reading complete.");
         }catch (Exception e) {
-            System.out.println("MOCK_DATA.csv - BOOK CREATION ERROR");
+            System.out.println("MOCK_DATA.csv - ERROR ACCESSING FILE DURING LOAD");
         }
     }
     
@@ -101,12 +101,12 @@ public class BookController {
                     }
                     books.put(id, new Book(id, authorName, title, genres, bList));
                 }catch(Exception e){
-                    System.out.println("books.txt - READING ERROR");
+                    System.out.println("books.txt - LOADING ERROR");
                 }
             }
-            System.out.println("books.txt - File reading complete.");
+            System.out.println("books.txt - Loading successful.");
         }catch (Exception e) {
-            System.out.println("books.txt - BOOK CREATION ERROR");
+            System.out.println("books.txt - ERROR ACCESSING FILE DURING LOAD");
         }
     }
     
@@ -134,14 +134,14 @@ public class BookController {
                     }
                     printWriter.write("\n"); // End line to write next book
                 }catch(Exception e){
-                    System.out.println("books.txt - READING ERROR");
+                    System.out.println("books.txt - SAVING ERROR");
                 }
             }
             printWriter.close();
             fileWriter.close();
-            System.out.println("books.txt - File reading complete.");
+            System.out.println("\nbooks.txt - Updated.");
         }catch (Exception e) {
-            System.out.println("books.txt - BOOK CREATION ERROR");
+            System.out.println("books.txt - ERROR ACCESSING FILE DURING SAVE");
         }
     }
     
