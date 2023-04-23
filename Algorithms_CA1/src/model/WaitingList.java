@@ -94,6 +94,7 @@ public class WaitingList {
             System.out.print("\nWaiting list is Empty.");
         }else{
             // Prints the data of the student whose id is in the first position of the queue
+            System.out.println("\n---[ Next on the Waiting list ]---");
             StudentController.getStudent(queue[first]).printStudent(); 
         }
     }

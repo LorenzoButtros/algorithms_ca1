@@ -18,13 +18,12 @@ public class Main {
     
     public static void main(String[] args) {
         
-        //BookController.createBooksFromCSV();
         BookController.loadBookData();
         StudentController.loadStudentData();
         BorrowingController.loadBorrowingData();
         WaitingListController.loadWListData();
-        //BookController.saveBooks();
-        //StudentController.saveStudents();
+        BookController.saveBooks();
+        StudentController.saveStudents();
         //testCase();
         while(run){
             Menu.showMainMenu();
